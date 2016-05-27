@@ -1,0 +1,11 @@
+
+<ul>
+<% @users.each do |user| %>
+  <a href="/show_user_tweets?user_id=<%=user.id%>"><li><%= user.email %></li></a>
+  <ul>
+    <% user.tweets.each do |tweet| %>
+      <li><%= tweet.message %></li>
+    <% end %>
+  </ul>
+<% end %>
+</ul>

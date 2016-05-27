@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if current_user %>
+  <%=current_user.email%>
+  <%= link_to "Cerrar sesion", destroy_user_session_path, :method => :delete %>
+<% else %>
+  <a href="/users/sign_in">Iniciar sesion</a>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
